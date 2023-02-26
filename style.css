@@ -1,0 +1,307 @@
+/* Globales + variables para animacion del hero */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    max-width: 1080px;
+    --primario: white;
+    --bc1: #0bb786;
+    --bc2: #bf4060;
+    --td: 1.2s;
+    --d1: .1s;
+    --d2: .5s;
+}
+
+@media screen and (with: 1024px) {
+    body {
+        margin: auto;
+        justify-content: center;
+    }
+}
+
+h1 {
+    font-size: 2.8rem;
+    font-weight: bold;
+}
+
+h2 {
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+h3 {
+    font-size: 1.5rem;
+}
+
+p {
+    font-size: 1rem;
+    font-weight: 300;
+    line-height: 1.5rem;
+}
+
+hr {
+    margin: 3rem;
+    width: 60%;
+    background-color: darkslategrey;
+    border-radius: 3px;
+}
+
+
+/* Header */
+
+.header {
+    display: flex;
+    min-height: 30vh;
+    padding: 1rem;
+    background-color: #A38C15;
+}
+
+.header h1,
+h2 {
+    padding: 1rem;
+}
+
+.header h2 {
+    padding-left: 2rem;
+    padding-top: 2rem;
+}
+
+header>div {
+    width: 50%;
+    padding: .5rem;
+    color: white;
+}
+
+header .foto {
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.foto img {
+    display: flex;
+    max-height: 250px;
+    max-width: 250px;
+    margin: auto;
+    width: 100%;
+    border-radius: 5px;
+}
+
+.foto img:hover {
+    transform: scale(1.20);
+    transition: 170ms;
+    box-shadow: 3px 7px 74px -8px rgb(140, 110, 35);
+}
+
+
+.block-rev1 {
+    --t: calc(var(--td) + var(--d1));
+
+    color: transparent;
+    padding: 4px;
+
+    position: relative;
+    overflow: hidden;
+
+    animation: revealBlock 0s var(--t) forwards;
+}
+
+.block-rev1::after {
+    content: '';
+
+    width: 0%;
+    height: 100%;
+    padding-bottom: 4px;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    background: var(--bc1);
+    animation: revealingIn var(--td) var(--d1) forwards, revealingOut var(--td) var(--t) forwards;
+}
+
+.block-rev2 {
+    --t: calc(var(--td) + var(--d2));
+
+    color: transparent;
+    padding: 4px;
+
+    position: relative;
+    overflow: hidden;
+
+    animation: revealBlock 0s var(--t) forwards;
+}
+
+.block-rev2::after {
+    content: '';
+
+    width: 0%;
+    height: 100%;
+    padding-bottom: 4px;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    background: var(--bc2);
+    animation: revealingIn var(--td) var(--d2) forwards, revealingOut var(--td) var(--t) forwards;
+}
+
+
+/* animaciones */
+@keyframes revealBlock {
+    100% {
+        color: var(--primario);
+    }
+}
+
+@keyframes revealingIn {
+
+    0% {
+        width: 0;
+    }
+
+    100% {
+        width: 100%;
+    }
+}
+
+@keyframes revealingOut {
+
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(100%);
+    }
+
+}
+
+/* Menu */
+
+.menu {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    background-color: #0bb786;
+    cursor: pointer;
+}
+
+li a {
+    display: block;
+    text-decoration: none;
+    padding: 5px;
+    text-align: center;
+    color: white;
+    font-size: 1.2rem;
+    background-color: #0bb786;
+}
+
+li a:hover {
+    background-color: #099D73;
+    color: darkslategray;
+    transition: 1.5s;
+}
+
+/* Menu tooltips */
+
+
+.tooltip-box {
+    text-decoration: none;
+    position: relative;
+}
+
+.tooltip-info {
+    background: black;
+    color: white;
+    padding: 3px 6px;
+    border-radius: 5px;
+    position: fixed;
+    visibility: hidden;
+    z-index: 5;
+    font-size: .7rem;
+}
+
+.tooltip-box:hover .tooltip-info {
+    visibility: visible;
+}
+
+
+/* Menu Media Queries */
+
+@media screen and (min-width: 480px) {
+    .menu {
+        display: flex;
+        flex-direction: row;
+        gap: 1rem;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+/* Main */
+
+.contenedor {
+    display: flex;
+}
+
+main article {
+    padding: 1.5rem;
+}
+
+.conteiner-1 {
+    margin-left: 1px;
+    width: 50%;
+    background-color: beige;
+}
+
+.conteiner-2 {
+    width: 50%;
+    padding: 2rem;
+    background-color: lightgray;
+}
+
+article {
+    padding-top: 2rem;
+}
+
+.historial {
+    padding: 1rem;
+}
+
+.agencias {
+    font-weight: bold;
+}
+
+
+/* Address */
+
+address {
+    display: flex;
+    justify-content: center;
+    padding-top: 3rem;
+    background-color: beige;
+}
+
+address p {
+    display: flex;
+    justify-content: flex-start;
+    padding: .5rem;
+
+}
+
+.contacto {
+    width: 400px;
+    height: 200px;
+    background-color: #b8860b;
+    border-radius: 5px;
+    box-shadow: 10px 10px 5px 0px rgba(231, 166, 26, 1);
+    margin-bottom: 2rem;
+}
